@@ -1,0 +1,51 @@
+const blogsData = [
+  {
+    id: "1",
+    url: "/assets/img/blog_1.jpg",
+    title: "wedding planner",
+    blogs_post: "Blog posts, Wedding News",
+    user: "Hamza Noor",
+    calender: "07-02-2022",
+  },
+  {
+    id: "2",
+    url: "/assets/img/blog_2.jpg",
+    title: "corporate event planner",
+    blogs_post: "Blog posts, Corporate Event News",
+    user: "Haris Ali",
+    calender: "07-02-2022",
+  },
+  {
+    id: "3",
+    url: "/assets/img/blog_3.jpg",
+    title: "party planner & decor",
+    blogs_post: "Blog posts, Party & Decor News",
+    user: "Sami Ullah",
+    calender: "07-02-2022",
+  },
+  {
+    id: "4",
+    url: "/assets/img/blog_4.jpg",
+    title: "birthday planner",
+    blogs_post: "Blog posts, Birthday News",
+    user: "Hamza Noor",
+    calender: "07-02-2022",
+  },
+  {
+    id: "5",
+    url: "/assets/img/blog_5.jpg",
+    title: "wedding decorates",
+    blogs_post: "Blog posts, Wedding Decor News",
+    user: "Minhaj Uddin",
+    calender: "07-02-2022",
+  },
+  {
+    id: "6",
+    url: "/assets/img/blog_6.jpg",
+    title: "floral arrangements",
+    blogs_post: "Blog posts, Floral News",
+    user: "Usman",
+    calender: "07-02-2022",
+  },
+];
+export default blogsData;
