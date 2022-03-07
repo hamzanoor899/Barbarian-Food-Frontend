@@ -1,6 +1,6 @@
 import "./App.css";
 import { Footer } from "./components/Footer";
-import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Navbar";
 import { Menu } from "./components/pages/menu/Menu";
 import { Landing } from "./components/pages/landing/Landing";

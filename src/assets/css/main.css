@@ -969,6 +969,14 @@
   border-bottom: 1px solid #000;
 }
 
+.border_bottom input {
+  border: 0;
+}
+
+.border_bottom input:focus-visible, input:focus{
+  outline: none;
+} 
+
 .blog_info {
   padding-left: 6px;
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import {
   Card,
@@ -13,6 +15,70 @@ import {
 } from "reactstrap";
 
 export const ContactUs = () => {
+  const [formValue, setFormValue] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    services: "",
+    starting_date: "",
+    ending_date: "",
+    description: "",
+  });
+
+  const name = (e) => {
+    setFormValue({ ...formValue, name: e.target.value });
+  };
+
+  const email = (e) => {
+    setFormValue({ ...formValue, email: e.target.value });
+  };
+
+  const phone = (e) => {
+    setFormValue({ ...formValue, phone: e.target.value });
+  };
+
+  const service = (e) => {
+    setFormValue({ ...formValue, services: e.target.value });
+  };
+
+  const starting_date = (e) => {
+    setFormValue({ ...formValue, starting_date: e.target.value });
+  };
+
+  const ending_date = (e) => {
+    setFormValue({ ...formValue, ending_date: e.target.value });
+  };
+
+  const description = (e) => {
+    setFormValue({ ...formValue, description: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      name: formValue.name,
+      email: formValue.email,
+      phone: formValue.phone,
+      services: formValue.services,
+      starting_date: formValue.starting_date,
+      ending_date: formValue.ending_date,
+      description: formValue.description,
+    };
+    axios
+      .post("http://localhost:4003/post", userData)
+      .then((data) => console.log(data.userData))
+      .catch((err) => console.log(err));
+    setFormValue({
+      name: "",
+      email: "",
+      phone: "",
+      services: "",
+      starting_date: "",
+      ending_date: "",
+      description: "",
+    });
+  };
+
   return (
     <>
       <Container className="p-5">
@@ -101,36 +167,25 @@ export const ContactUs = () => {
               <CardTitle className="text-center fs-1">
                 <strong>Book a Meeting</strong>
               </CardTitle>
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="">Full Name*</Label>
-                      <Input type="text" name="name" id="" placeholder="" />
-                    </FormGroup>
-                  </Col>
-                  <Col>
-                    <FormGroup>
-                      <Label for="">Email ID*</Label>
-                      <Input type="email" name="email" id="" placeholder="" />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <FormGroup>
-                      <Label for="">Phone Number*</Label>
-                      <Input type="number" name="name" id="" placeholder="" />
-                    </FormGroup>
-                  </Col>
-                  <Col>
-                    <FormGroup>
-                      <Label for="">Services*</Label>
+                      <Label>Full Name*</Label>
                       <Input
-                        type="service"
-                        name="service"
-                        id=""
-                        placeholder="Please Any Services"
+                        type="text"
+                        value={formValue.name}
+                        onChange={name}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label>Email ID*</Label>
+                      <Input
+                        type="email"
+                        value={formValue.email}
+                        onChange={email}
                       />
                     </FormGroup>
                   </Col>
@@ -138,25 +193,62 @@ export const ContactUs = () => {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="">Event Starting Date*</Label>
-                      <Input type="date" name="date" id="" placeholder="" />
+                      <Label>Phone Number*</Label>
+                      <Input
+                        type="number"
+                        value={formValue.phone}
+                        onChange={phone}
+                      />
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="">Event Ending Date*</Label>
-                      <Input type="date" name="date" id="" placeholder="" />
+                      <Label>Services*</Label>
+                      <Input
+                        type="service"
+                        placeholder="Please Any Services"
+                        value={formValue.services}
+                        onChange={service}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label>Event Starting Date*</Label>
+                      <Input
+                        type="date"
+                        value={formValue.starting_date}
+                        onChange={starting_date}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label>Event Ending Date*</Label>
+                      <Input
+                        type="date"
+                        value={formValue.ending_date}
+                        onChange={ending_date}
+                      />
                     </FormGroup>
                   </Col>
                 </Row>
                 <Row className="flex-column align-items-center">
                   <Col>
                     <FormGroup>
-                      <Label for="">Description</Label>
-                      <Input type="textarea" name="text" id="" placeholder="" />
+                      <Label>Description</Label>
+                      <Input
+                        type="textarea"
+                        value={formValue.description}
+                        onChange={description}
+                      />
                     </FormGroup>
                   </Col>
-                <button className="btn_submit">Submit</button>
+                  <button className="btn_submit" type="submit">
+                    Submit
+                  </button>
                 </Row>
               </Form>
             </Card>

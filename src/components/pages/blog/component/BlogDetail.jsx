@@ -113,10 +113,18 @@ export const BlogDetail = () => {
             <li className="border_text">
               Your email address will not be published.
             </li>
-            <li className="border_bottom border_text">Comment</li>
-            <li className="border_bottom border_text">Name (required)</li>
-            <li className="border_bottom border_text">Email (required)</li>
-            <li className="border_bottom border_text">Website</li>
+            <li className="border_bottom border_text">
+              <input type="text" placeholder="Comment" for="text" />
+            </li>
+            <li className="border_bottom border_text">
+              <input type="text" placeholder="Name (required)" for="text" />
+            </li>
+            <li className="border_bottom border_text">
+              <input type="text" placeholder="Email (required)" for="text" />
+            </li>
+            <li className="border_bottom border_text">
+              <input type="text" placeholder="Website" for="text" />
+            </li>
           </ul>
         </Col>
       </Row>
